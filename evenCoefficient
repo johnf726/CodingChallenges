@@ -1,0 +1,50 @@
+import UIKit
+
+class evenCoefficient{
+    func stringTransform(A: String)->String{
+        var B = A
+        print("inside here")
+        for letters in 0..<A.count{
+            let strIndex = A.index(A.startIndex, offsetBy: letters)
+            //print(type(of: A[strIndex]))
+            let char = A[strIndex]
+            if let number = Int(String(char)) {
+                if(number%2 != 0){
+                    B.remove(at: strIndex)
+                    B.insert("+", at: strIndex)
+                }
+            }
+        }
+        return B
+    }
+    
+    func containsAllEvens(B: String)->Bool{
+        if(B.contains("0")&&B.contains("2")&&B.contains("4")&&B.contains("6")&&B.contains("8")){
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    
+    func replaceStringOccurrences(B: String)->Int{
+        var C = (B.split(separator: "+"))
+        var coefficients = [Int]()
+        for indexes in 0..<C.count{
+            var arryIndex = C.index(C.startIndex, offsetBy: indexes)
+            print(type(of: String(C[arryIndex])))
+            if containsAllEvens(B: String(C[arryIndex])) == true{
+                print(C[arryIndex].count)
+                coefficients.append(C[arryIndex].count)
+            }else{
+                print("doesn't contain all evens")
+            }
+        }
+        return coefficients.max()!
+    }
+}
+
+let x = evenCoefficient()
+var B = x.stringTransform(A: "02428613901810022446688")
+var C = x.replaceStringOccurrences(B: B)
+print(C)
