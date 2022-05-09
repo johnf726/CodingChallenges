@@ -1,0 +1,14 @@
+import UIKit
+
+class separator{
+    func separator(stringToSeparate: String) -> Int{
+        var arry = greeting.split(separator: " ")
+        print(arry[arry.count - 1].count)
+        print(arry.last?.count)
+        return arry[arry.count - 1].count
+    }
+}
+
+let stringToCheck = separator()
+var greeting = "Hello playground"
+stringToCheck.separator(stringToSeparate: greeting)
