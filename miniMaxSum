@@ -1,0 +1,27 @@
+import UIKit
+
+class minMaxSum{
+    func miniMaxSum(arr: [Int]){
+        var minSum = 0
+        var maxSum = 0
+        var a = arr
+        a.sort()
+        
+        for items in 0..<a.count-1{
+            var aIndex = a.index(a.startIndex, offsetBy: items)
+            minSum += a[aIndex]
+        }
+        
+        for items in 1..<a.count{
+            var aIndex = a.index(a.startIndex, offsetBy: items)
+            maxSum += a[aIndex]
+        }
+        
+        print(minSum)
+        print(maxSum)
+    }
+}
+
+var x = minMaxSum()
+x.miniMaxSum(arr: [0,1,2,3,4])
+
