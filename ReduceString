@@ -1,0 +1,19 @@
+func findB(A: String)->String {
+    var value = 0
+    for values in 0..<A.count{
+        let index = A.index(A.startIndex, offsetBy: values)
+        if(A[index] == "a" && value <= values){
+            value = values
+        }
+    }
+
+    let start = A.index(A.startIndex, offsetBy: 0)
+    let end = A.index(A.startIndex, offsetBy: value + 1)
+    var B = A[start...end]
+    
+    return String(B)
+}
+// INPUT [uncomment & modify if required]
+var A = readLine()!
+// OUTPUT [uncomment & modify if required
+print(findB(A: A))
