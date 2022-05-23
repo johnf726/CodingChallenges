@@ -1,19 +1,39 @@
-func findB(A: String)->String {
-    var value = 0
+  var value = 0
+    var newA = ""
+    var count = 0
     for values in 0..<A.count{
         let index = A.index(A.startIndex, offsetBy: values)
+
         if(A[index] == "a" && value <= values){
             value = values
+        } else {
+            newA = newA + String(A[index])
+            count = count + 1
         }
     }
 
-    let start = A.index(A.startIndex, offsetBy: 0)
-    let end = A.index(A.startIndex, offsetBy: value + 1)
-    var B = A[start...end]
-    
+    print(count)
+    print(count/2)
+    let startB = newA.index(newA.startIndex, offsetBy: 0)
+    let endB = newA.index(A.startIndex, offsetBy: count/2 - 1)
+    let startC = newA.index(newA.startIndex, offsetBy: count/2)
+    let endC = newA.index(newA.startIndex, offsetBy: count - 1)
+    var B = newA[startB...endB]
+    var C = newA[startC...endC]
+
+    print(newA)
+    print(B)
+    print(C)
+    for letters in 0..<B.count{
+        let indexB = B.index(B.startIndex, offsetBy: letters)
+        let indexC = C.index(C.startIndex, offsetBy: letters)
+        print(newA[indexA])
+        print(C[index])
+        print(C)
+        if(B[indexB] != C[indexC]){
+            return "-1"
+        }
+    }
+
+
     return String(B)
-}
-// INPUT [uncomment & modify if required]
-var A = readLine()!
-// OUTPUT [uncomment & modify if required
-print(findB(A: A))
