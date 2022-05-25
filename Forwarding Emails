@@ -1,0 +1,36 @@
+func maxLength(N: Int, A: [[String]]) -> Int {
+    var count = 0
+    var highestCount = 0
+    var result = 0
+    for email in 0..<A.count{
+        let index = A.index(A.startIndex, offsetBy: email)
+        if(index + 1 < A.count){
+            if(A[index][0] == A[index + 1][2]){
+                count = count + 1
+                if(count == N - 1){
+                    result = N + 1
+                    return result
+                }
+            } else if(count > highestCount){
+                highestCount = count
+                count = 0
+            }
+        }
+    }
+    result = highestCount*2 + 1
+    
+    return result
+}
+
+//INPUT [uncomment & modify if required]
+var N = Int(readLine()!)!
+var A = [[String]]()
+for _ in 1...N {
+    var word_inp = readLine()!
+    var word_array = word_inp.split{$0 == " "}
+    var message = word_array.map{String($0)}
+    A.append(message)
+}
+
+//OUTPUT [uncomment & modify if required]
+print(maxLength(N: N, A: A))
