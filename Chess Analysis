@@ -1,0 +1,23 @@
+func minMoves(x1: Int, y1: Int, x2: Int, y2: Int) -> Int {
+    if(x2 - x1 != 0){
+        if(((y2 - y1)/(x2 - x1)) == 1 || ((y2 - y1)/(x2 - x1)) == -1){
+            return 1
+        } 
+    }
+    
+    return -1
+}
+// INPUT [uncomment & modify if required]
+var T = Int(readLine()!)!
+for _ in 1...T {
+    var temp_inp = readLine()!
+    var temp_array = temp_inp.split{$0 == " "}
+    var temp = temp_array.map{Int($0)!}
+
+    var x1 = temp[0]
+    var y1 = temp[1]
+    var x2 = temp[2]
+    var y2 = temp[3]
+    // OUTPUT [uncomment & modify if required]
+    print(minMoves(x1: x1, y1: y1, x2: x2, y2: y2))
+}
