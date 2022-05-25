@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Main {
+    static int charsBeforeDigits(String input) {
+        int count = 0;
+		for(int i = 0; i < input.length(); i ++){
+            if(Character.isDigit(input.charAt(i))){
+                for(int j = 0; j < i; j++){
+                    if(!Character.isDigit(input.charAt(j))){
+                        count++;
+                    }
+                }
+            }
+        }
+		
+		
+        return count;
+    }
+
+    public static void main(String[] args) {
+        // INPUT [uncomment & modify if required]
+        Scanner sc = new Scanner(System.in);
+        String ip = sc.nextLine();
+        sc.close();
+        // OUTPUT [uncomment & modify if required]
+        System.out.println(charsBeforeDigits(ip));
+    }
+}
