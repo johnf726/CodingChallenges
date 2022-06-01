@@ -1,0 +1,61 @@
+public class Main {
+
+    public static float volatileStack(int N, float A[], float B[]) {
+
+       
+
+       double largest = 0.0;
+
+       double result = 0.0;
+
+        for(int i = 0; i < N; i++){
+
+            if(Math.abs(B[i]/A[i] - 1) > largest){
+
+                largest = (B[i]/A[i] - 1);
+
+            }
+
+        }
+
+        double roundOff = Math.round(largest*10000.0)/100.0;
+
+        return (float) roundOff;
+
+    }
+
+    public static void main(String[] args) {
+
+        // INPUT [uncomment & modify if required]
+
+        Scanner sc = new Scanner(System.in);
+
+        int N = sc.nextInt();
+
+        
+
+        float A [] = new float[N];
+
+        float B [] = new float[N];
+
+        for(int i=0; i<N; i++) {
+
+            A[i] = sc.nextFloat();
+
+        }
+
+        for(int i=0; i<N; i++) {
+
+            B[i] = sc.nextFloat();
+
+        }
+
+        // OUTPUT [uncomment & modify if required]
+
+        System.out.printf("%.2f",volatileStack(N,A,B));
+
+        sc.close();
+
+    }
+
+}
