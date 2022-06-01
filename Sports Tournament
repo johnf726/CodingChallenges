@@ -1,0 +1,28 @@
+func numTeams(N: Int, A: [Int])->Int {
+    var B = [Int]()
+
+    var count = 0
+
+    for values in 0..<A.count{
+        let index = A.index(A.startIndex, offsetBy: values)
+
+        if !B.contains(A[index]){
+            B.append(A[index])
+
+            count += 1
+        }
+    }
+
+    return count
+}
+//INPUT [uncomment & modify if required]
+var N = Int(readLine()!)!
+var A = [Int]()
+
+for _ in 1...N {
+    var temp = Int(readLine()!)!
+    A.append(temp)
+}
+
+//OUTPUT [uncomment & modify if required]
+print(numTeams(N: N, A: A))
