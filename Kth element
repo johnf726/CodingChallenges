@@ -1,0 +1,25 @@
+func k_Element(n: Int,k: Int,m: Int, nArray: [Int]) -> Int {
+    var b = nArray;
+    for iterations in 1...m{
+        let index = b.firstIndex(of: b.min()!)!
+        b.remove(at: index)
+    }
+
+    if(k <= b.count){
+        let indexK = b.index(b.startIndex, offsetBy: k - 1)
+        return b[indexK]
+    } else {
+        return -1
+    }
+}
+//INPUT [uncomment & modify if required]
+let N = Int(readLine()!)
+let K = Int(readLine()!)
+let M = Int(readLine()!)
+
+let stringNumbers = readLine()!
+let array = stringNumbers.split {$0 == " "}
+let NArray = array.map { Int($0)!} 
+
+//OUTPUT [uncomment & modify if required]
+print(k_Element(n: N!,k: K!,m: M!, nArray: NArray))
