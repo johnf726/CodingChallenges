@@ -1,0 +1,31 @@
+func goToNextNode(nextNode: Int, a: [Int], A: [Int]) -> [Int]{
+	var b = a
+	let index = b.index(b.startIndex, offsetBy: nextNode - 1)
+	b[index] = b[index] + 1
+
+	return b
+}
+func firstNode(N: Int, A: [Int]) -> Int {
+    var a = Array(repeating: 0, count: A.count)
+	print(a)
+	for index in 0..<A.count{
+		let indexA = A.index(A.startIndex, offsetBy: index)
+		repeat{
+			a = goToNextNode(nextNode: A[indexA], a: a, A: A)
+		}while(!a.contains(2))
+
+		if(a.contains(2)){
+			print(a.firstIndex(of: 2)! + 1)
+		}
+	}
+
+	return 0
+}
+// INPUT [uncomment & modify if required]
+var N = Int(readLine()!)!
+var a_inp = readLine()!
+var a_array = a_inp.split{$0 == " "}
+var A = a_array.map{Int($0)!}
+
+// OUTPUT [uncomment & modify if required]
+print(firstNode(N: N, A: A))
