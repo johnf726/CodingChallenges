@@ -1,0 +1,16 @@
+func NumberofZeros(n: Int) -> Int {
+   
+    var count = 0
+    var s = "\(n)"
+    for numbers in 0..<s.count{
+        count = count + (s.count - numbers - 1);
+    }
+
+    return count
+}
+
+//INPUT [uncomment & modify if required]
+let N = Int(readLine()!)
+
+//OUTPUT [uncomment & modify if required]
+print(NumberofZeros(n: N!))
