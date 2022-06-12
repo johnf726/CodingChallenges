@@ -1,0 +1,17 @@
+func divisibleSumPairs(n: Int, k: Int, ar: [Int]) -> Int {
+    var count = 0
+    for i in 0..<ar.count{
+        for j in 0..<ar.count{
+            
+            if(i != j && (ar[i] + ar[j])%k == 0){
+                print(ar[i])
+                print(ar[j])
+                print("----")
+                count = count + 1
+            }
+        }
+    }
+    
+    
+    return count/2
+}
