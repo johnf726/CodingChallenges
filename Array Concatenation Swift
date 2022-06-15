@@ -1,0 +1,26 @@
+func smallestString(A: [String], B: [String]) -> String {
+    var vowels = Set(["a","e","i","o","u"])
+    var C = [String]()
+    for letters in 0..<A.count{
+        let index = A.index(A.startIndex, offsetBy: letters)
+        C.append(A[index])
+        if(vowels.contains(A[index])){
+            break
+        }
+    }
+    for letters in 0..<B.count{
+        let index = B.index(B.startIndex, offsetBy: letters)
+        C.append(B[index])
+        if(!vowels.contains(B[index])){
+            break
+        }
+    }
+    return C.joined(separator: "");
+}
+// INPUT [uncomment & modify if required]
+let A_str = readLine()!
+let A = A_str.map{String($0)}
+let B_str = readLine()!
+let B = B_str.map{String($0)}
+// OUTPUT [uncomment & modify if required]
+print(smallestString(A: A, B: B))
