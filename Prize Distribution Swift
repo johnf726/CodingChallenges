@@ -1,0 +1,27 @@
+func findSmallestSum(length: Int, N: Int) -> Int{
+    var sum = 0
+    for numbers in 1...length{
+        sum = sum + numbers
+    }
+    for numbers in length+1..<N{
+        if(sum + numbers == N){
+            sum = sum + numbers
+            break
+        } else if(sum + numbers > N) {
+            var l = length + 1
+            findSmallestSum(length: l, N: N)
+        }
+    }
+
+    return length
+}
+func maxWinners(N: Int) ->Int {
+    
+    var result = (findSmallestSum(length: 2, N: N))
+
+    return result
+}
+// INPUT [uncomment & modify if required]
+var N = Int(readLine()!)!
+// OUTPUT [uncomment & modify if required]
+print(maxWinners(N: N))
