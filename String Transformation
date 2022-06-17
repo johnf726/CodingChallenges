@@ -1,0 +1,23 @@
+import Foundation
+
+
+
+func minOperations(A: String, B: String)->Int {
+
+    let count = A.components(separatedBy: B)
+
+    var result = count.count - 1
+
+    return result
+
+}
+
+// INPUT [uncomment & modify if required]
+
+var A = readLine()!
+
+var B = readLine()!
+
+// OUTPUT [uncomment & modify if required
+
+print(minOperations(A: A, B: B))
