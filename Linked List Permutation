@@ -1,0 +1,33 @@
+func listPermutation(n: Int,k: Int, a: [Int]) -> String{
+    var b = a
+    var c = a
+    var count = 0
+    b.sort()
+    for values in 0..<b.count{
+        let index = b.index(b.startIndex, offsetBy: b.count - 1 - values)
+        if(count < k){
+            count = count + 1
+            if let cIndex = c.firstIndex(of: b[index]){
+                c.remove(at: cIndex)
+            }
+        } else {
+            break
+        }
+    }
+    for values in 0..<c.count{
+        let index = c.index(c.startIndex, offsetBy: values)
+        print(c[index], terminator: " ")
+    }
+
+    return ""
+}
+//INPUT [uncomment & modify if required]
+let N = Int(readLine()!)
+let K = Int(readLine()!)
+
+let stringNumbers = readLine()!
+let array = stringNumbers.split {$0 == " "}
+let NArray = array.map { Int($0)!} 
+
+//OUTPUT [uncomment & modify if required]
+print(listPermutation(n: N!,k: K!, a: NArray))
