@@ -1,0 +1,23 @@
+func occurrenceStatus(A: [String], N: Int) -> String{
+    var B = [String]()
+    for elements in 0..<A.count{
+        let index = A.index(A.startIndex, offsetBy: elements)
+        if(!B.contains(A[index])){
+            B.append(A[index])
+            print("NO")
+        } else {
+            print("YES")
+        }
+    }
+    
+    
+    return ""
+}
+// INPUT [uncomment & modify if required]
+var N = Int(readLine()!)!
+var A = [String]()
+for _ in 1...N {
+    A.append(readLine()!)
+}
+// OUTPUT [uncomment & modify if required]
+print(occurrenceStatus(A: A, N: N))
