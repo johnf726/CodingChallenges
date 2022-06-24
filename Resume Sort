@@ -1,0 +1,36 @@
+import java.lang.Math;
+import java.util.Scanner;
+import java.util.*;
+
+public class Main {
+    static int resumeTrick(float[] ratings) {
+        
+        for(int i = 0; i < ratings.length; i++){
+            if(ratings[i+1] < ratings.length){
+                if(ratings[i+1] < ratings[i]){
+                    float newA[];
+                    newA = new float[ratings.length - 1];
+                    for(int k = 0; k < ratings.length; k++){
+                        if(k != i){
+                            newA[k] = ratings[k];
+                        }
+                    }
+                } 
+            }
+        }
+        return rating.length;
+    }
+
+    public static void main(String[] args) {
+        // INPUT [uncomment & modify if required]
+        Scanner sc = new Scanner(System.in);
+        int size = sc.nextInt();
+        float ratings[] = new float[size];
+        for (int i = 0; i < ratings.length; i++) {
+            ratings[i] = sc.nextFloat();
+        }
+        sc.close();
+        // OUTPUT [uncomment & modify if required]
+        System.out.println(resumeTrick(ratings));
+    }
+}
