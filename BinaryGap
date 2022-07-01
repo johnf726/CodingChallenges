@@ -1,0 +1,17 @@
+import Foundation
+import Glibc
+
+
+public func solution(_ N : Int) -> Int {
+    let binaryN = String(N, radix: 2)
+    let binaryNComponents = binaryN.components(separatedBy: "1")
+    var largestGap = 0
+    for index in 0..<binaryNComponents.count - 1{
+        let index = binaryNComponents.index(binaryNComponents.startIndex, offsetBy: index)
+        if(binaryNComponents[index].count > largestGap){
+            largestGap = binaryNComponents[index].count
+        }
+    }
+
+    return largestGap
+}
