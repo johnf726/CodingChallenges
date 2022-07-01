@@ -1,0 +1,19 @@
+import Foundation
+import Glibc
+
+// you can write to stdout for debugging purposes, e.g.
+// print("this is a debug message")
+
+public func solution(_ A : inout [Int], _ K : Int) -> [Int] {
+    if(K%A.count == 0){
+        return A
+    } else {
+        var B = [Int](repeating: 0, count: A.count)
+        for i in 0..<A.count{
+            let indexOfA = A.index(A.startIndex, offsetBy: i)
+            let indexOfB = A.index(A.startIndex, offsetBy: (i + K)%A.count)
+            B[indexOfB] = A[indexOfA]
+        }
+        return B
+    }
+}
