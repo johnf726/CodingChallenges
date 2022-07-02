@@ -1,0 +1,10 @@
+public func solution(_ A : inout [Int]) -> Int {
+    var total = 0
+    var totalSum = ((A.count + 1)*(A.count + 2))/2
+    for i in 0..<A.count{
+        let index = A.index(A.startIndex, offsetBy: i)
+        total += A[index]
+    }
+
+    return totalSum - total
+}
